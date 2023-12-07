@@ -1,10 +1,16 @@
+<head>
+  
+</head>
+
+<body>
 <h1>LF10-Starter</h1>
-Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
-<ul>
-  <li *ngFor="let e of employees | async">
-    {{e.id}}, {{e.lastName}}, {{e.firstName}}, {{e.street}}, {{e.postcode}}, {{e.city}}, {{e.phone}}
-  </li>
-  <li *ngIf="employee">
-    {{employee.lastName}}
-  </li>
-</ul>
+  Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
+  <ul>
+   <li *ngFor="let e of employees | async">
+     {{e.id}}, {{e.lastName}}, {{e.firstName}}, {{e.street}}, {{e.postcode}}, {{e.city}}, {{e.phone}}
+   </li>
+   <li *ngIf="employee">
+     {{employee.lastName}}
+   </li>
+  </ul>
+</body>
