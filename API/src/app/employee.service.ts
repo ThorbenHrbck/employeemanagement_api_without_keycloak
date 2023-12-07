@@ -6,7 +6,7 @@ import { Employee } from './Employee';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeServiceService {
+export class EmployeeService {
 
   private swaggerURL = 'http://localhost:8089/employees';
 
@@ -25,12 +25,9 @@ export class EmployeeServiceService {
     return this.http.get<Employee>(url, this.httpOptions);
   }
 
-  //keine ahnung wie man das hier machen kann
-  //wird aber wahrscheinlich in eine andere komponente reingedonnert - search component
   searchEmployee(term: string): Observable<Employee[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
-      //return of([]); #bro wtf ist das
+      //return of([]); 
     }
     return this.http.get<Employee[]>(`${this.swaggerURL}/?name=${term}`);
   }

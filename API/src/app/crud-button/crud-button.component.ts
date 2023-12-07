@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Employee } from '../Employee';
 
 @Component({
   selector: 'app-crud-button',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./crud-button.component.css']
 })
 export class CrudButtonComponent {
-
+  employee: Employee | undefined;
 }
