@@ -6,7 +6,7 @@ import { Employee } from './Employee';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeServiceService {
+export class EmployeeService {
 
   private swaggerURL = 'http://localhost:8089/employees';
 
