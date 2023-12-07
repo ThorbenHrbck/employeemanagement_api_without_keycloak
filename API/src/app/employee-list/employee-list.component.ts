@@ -20,5 +20,4 @@ export class EmployeeListComponent {
     this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
 
   }
-
 }

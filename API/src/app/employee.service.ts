@@ -25,12 +25,9 @@ export class EmployeeService {
     return this.http.get<Employee>(url, this.httpOptions);
   }
 
-  //keine ahnung wie man das hier machen kann
-  //wird aber wahrscheinlich in eine andere komponente reingedonnert - search component
   searchEmployee(term: string): Observable<Employee[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
-      //return of([]); #bro wtf ist das
+      //return of([]); 
     }
     return this.http.get<Employee[]>(`${this.swaggerURL}/?name=${term}`);
   }
