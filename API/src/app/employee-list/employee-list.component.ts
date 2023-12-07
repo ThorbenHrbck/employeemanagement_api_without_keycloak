@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { EmployeeServiceService } from '../employee-service.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,18 +11,14 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class EmployeeListComponent {
 
-  employees$: Observable<Employee[]>;
+  employees: Observable<Employee[]>;
+  employee: Employee | undefined;
 
-  constructor(private http: HttpClient) {
-    this.employees$ = of([]);
-    this.fetchData();
-  }
+  constructor(private http: HttpClient, private employeeService: EmployeeServiceService) {
+    this.employees = employeeService.getEmployees();
 
-  fetchData() {
-    this.employees$ = this.http.get<Employee[]>('/backend', {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/json')
-    });
+    this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
+    
   }
 
 }
