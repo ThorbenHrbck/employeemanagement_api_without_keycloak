@@ -5,11 +5,15 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { SearchComponent } from './search/search.component';
+import { CrudButtonComponent } from './crud-button/crud-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    SearchComponent,
+    CrudButtonComponent
   ],
   imports: [
     BrowserModule,
