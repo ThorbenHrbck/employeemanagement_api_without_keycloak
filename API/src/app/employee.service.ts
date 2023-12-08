@@ -19,17 +19,15 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.swaggerURL, this.httpOptions);
   }
 
-  getEmployee(id: number): Observable<Employee>
+  getEmployee(id: number): Observable<Employee[]>
   {
     const url = `${this.swaggerURL}/${id}`;
-    return this.http.get<Employee>(url, this.httpOptions);
+    return this.http.get<Employee[]>(url, this.httpOptions);
   }
 
-  searchEmployee(term: string): Observable<Employee[]> {
-    if (!term.trim()) {
-      //return of([]); 
-    }
-    return this.http.get<Employee[]>(`${this.swaggerURL}/?name=${term}`);
+  searchEmployee(id: number): Observable<Employee[]> {
+    const url = `${this.swaggerURL}/${id}`;
+    return this.http.get<Employee[]>(url, this.httpOptions);
   }
 
   /** POST: add a new hero to the server */

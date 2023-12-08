@@ -12,12 +12,15 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeListComponent {
 
   employees: Observable<Employee[]>;
-  employee: Employee | undefined;
+  //employee: Employee[] | undefined;
 
-  constructor(private http: HttpClient, private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService) {
     this.employees = employeeService.getEmployees();
+    //this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
+  }
 
-    this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
-
+  public updateList(id: number): void 
+  {
+    this.employees = this.employeeService.getEmployee(id);
   }
 }
