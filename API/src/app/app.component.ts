@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Employee} from "./Employee";
+import {Employee} from "./employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 
