@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeListComponent } from '../employee-list/employee-list.component';
 
 @Component({
   selector: 'app-search',

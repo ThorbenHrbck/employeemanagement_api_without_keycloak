@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {Employee} from "./employee";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -9,8 +7,6 @@ import {Observable, of} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  constructor() {
- }
+  title = 'Mitarbeiterverwaltungssystem'
 
 }

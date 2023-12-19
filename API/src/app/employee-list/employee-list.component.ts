@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable, of} from "rxjs";
-import {Employee} from "../employee";
+import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { EmployeeService } from '../employee.service';
 
