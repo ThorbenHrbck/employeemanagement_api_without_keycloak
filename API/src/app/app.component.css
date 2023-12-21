@@ -1,4 +1,12 @@
-.container {
-    display: flex;
-    justify-content: space-evenly;
-  }
+#logo-ID{
+  float: left;
+}
+#title-ID{
+  text-align: center;
+}
+
+hr { 
+  height: 1px; 
+  margin: 0px;
+  background: black;
+}
