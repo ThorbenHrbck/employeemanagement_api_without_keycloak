@@ -24,7 +24,7 @@
       <td>{{e.phone}}</td>
     </tr>
 
-    <tr *ngIf="employee" href="/home">
+    <tr *ngIf="employee" (click)="ClickedRow(0)" [style.background-color]="highlightRow==0 ? 'lightblue' : 'white'">
       <td>{{employee.id}}</td>
       <td>{{employee.lastName}}</td>
       <td>{{employee.firstName}}</td>

@@ -14,7 +14,7 @@ export class EmployeeListComponent implements OnInit, OnChanges{
   employee: Employee | undefined;
 
   highlightRow: number = 0;
-  selectedId: number = 0;
+  selectedId: number | undefined;
 
   @Input() id_string: string | null | undefined;
 
@@ -40,6 +40,10 @@ export class EmployeeListComponent implements OnInit, OnChanges{
     {
       this.highlightRow = index; 
       this.selectedId = index + 1;
+      if(this.employee)
+      {
+        this.selectedId = this.employee.id;
+      }
     }
     
 
