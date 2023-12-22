@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,19 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-search.component.css']
 })
 export class SearchComponent{
-  constructor() {}
+  
+  constructor(private router: Router) {}
 
-  id : number | undefined;
+  @Output() id_change = new EventEmitter<string | null>();
+  id : string | null = '0';
 
 
   search(id_string: string): void {
     //Daten von einem eingabefeld sind immer ein string
-    if(id_string.length == 0)
+    if(id_string.length === 0 || id_string === '0')
     {
-      this.id = undefined;
+      this.id = '0';
+      this.id_change.emit('0');
+      //this.router.navigateByUrl('/home/0');
       return;
     }
 
-    this.id = parseInt(id_string);
+    this.id = id_string;
+    this.id_change.emit(this.id);
   }
 }

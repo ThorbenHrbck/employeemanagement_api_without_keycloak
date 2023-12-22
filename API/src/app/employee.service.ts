@@ -19,10 +19,10 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.swaggerURL, this.httpOptions);
   }
 
-  getEmployee(id: number): Observable<Employee[]>
+  getEmployee(id: number): Observable<Employee>
   {
     const url = `${this.swaggerURL}/${id}`;
-    return this.http.get<Employee[]>(url, this.httpOptions);
+    return this.http.get<Employee>(url, this.httpOptions);
   }
 
   searchEmployee(id: number): Observable<Employee[]> {

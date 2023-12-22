@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -9,18 +8,45 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent {
+export class EmployeeListComponent implements OnInit, OnChanges{
 
-  employees: Observable<Employee[]>;
-  //employee: Employee[] | undefined;
+  employees: Observable<Employee[]> | undefined;
+  employee: Employee | undefined;
+
+  highlightRow: number = 0;
+  selectedId: number | undefined;
+
+  @Input() id_string: string | null | undefined;
 
   constructor(private employeeService: EmployeeService) {
-    this.employees = employeeService.getEmployees();
-    //this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
+    
   }
 
-  public updateList(id: number): void 
-  {
-    this.employees = this.employeeService.getEmployee(id);
+  ngOnInit(): void {
+    this.highlightRow = -1;
+    if(this.id_string?.length !== 0 && this.id_string !== '0' && this.id_string !== undefined && this.id_string !== null)
+    {
+      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => this.employee = employee);
+      this.employees = of([]);
+    }else
+    {
+      this.employee = undefined;
+      this.employees = this.employeeService.getEmployees(); 
+    }
+  }
+
+  ClickedRow(index: number) : void
+    {
+      this.highlightRow = index; 
+      this.selectedId = index + 1;
+      if(this.employee)
+      {
+        this.selectedId = this.employee.id;
+      }
+    }
+    
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnInit();
   }
 }
