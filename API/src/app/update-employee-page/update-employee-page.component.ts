@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-employee-page',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class UpdateEmployeePageComponent {
 
+  private id: string | null;
+  constructor(private route: ActivatedRoute)
+  {
+    this.id = this.route.snapshot.paramMap.get('id');
+  }
 }

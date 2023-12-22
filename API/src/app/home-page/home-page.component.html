@@ -1,7 +1,7 @@
 <div class="container">
     <app-crud-button> </app-crud-button>
     <div>
-        <app-search></app-search>
-        <app-employee-list></app-employee-list>
+        <app-search (id_change)="change_id($event)"></app-search>
+        <app-employee-list [id_string]="id"></app-employee-list>
     </div>
 </div>

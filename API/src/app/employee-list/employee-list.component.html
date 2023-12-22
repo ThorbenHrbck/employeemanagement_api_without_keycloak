@@ -24,5 +24,15 @@
       <td>{{e.city}}</td>
       <td>{{e.phone}}</td>
     </tr>
+
+    <tr *ngIf="employee">
+      <td>{{employee.id}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.street}}</td>
+      <td>{{employee.postcode}}</td>
+      <td>{{employee.city}}</td>
+      <td>{{employee.phone}}</td>
+    </tr>
   </table>
 </body>
