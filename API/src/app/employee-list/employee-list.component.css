@@ -1,3 +1,16 @@
-table, th, td {
-    border: 1px solid black;
-   }
+table {
+    border-collapse: collapse;
+  }
+  
+  td {
+    border: 2px solid #ccd2ff;
+    position: relative;
+  }
+  
+ 
+tr:hover,
+tr:focus-within {
+  background: #f2f3ff;
+  outline: none;
+  cursor:pointer
+}

@@ -4,7 +4,7 @@
 <body>
 <h1>LF10-Starter</h1>
   Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
-  <table>
+  <table class="table-clickable">
     <tr>
       <th>ID</th>
       <th>Vorname</th>
@@ -15,7 +15,8 @@
       <th>Telefonnummer</th>
     </tr>
     
-    <tr *ngFor="let e of employees | async">
+    <tr *ngFor="let e of employees | async; let i = index;" (click)="ClickedRow(i)"
+    [style.background-color]="highlightRow==i ? 'lightblue' : 'white'">
       <td>{{e.id}}</td>
       <td>{{e.lastName}}</td>
       <td>{{e.firstName}}</td>
@@ -25,7 +26,7 @@
       <td>{{e.phone}}</td>
     </tr>
 
-    <tr *ngIf="employee">
+    <tr *ngIf="employee" href="/home">
       <td>{{employee.id}}</td>
       <td>{{employee.lastName}}</td>
       <td>{{employee.firstName}}</td>
