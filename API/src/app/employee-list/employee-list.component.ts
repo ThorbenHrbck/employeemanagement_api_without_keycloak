@@ -23,7 +23,8 @@ export class EmployeeListComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    if((this.id_string?.length !== 0 && this.id_string !== '0') && this.id_string !== undefined && this.id_string !== null)
+    this.highlightRow = -1;
+    if(this.id_string?.length !== 0 && this.id_string !== '0' && this.id_string !== undefined && this.id_string !== null)
     {
       this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => this.employee = employee);
       this.employees = of([]);
@@ -32,8 +33,6 @@ export class EmployeeListComponent implements OnInit, OnChanges{
       this.employee = undefined;
       this.employees = this.employeeService.getEmployees(); 
     }
-
-    
   }
 
   ClickedRow(index: number) : void
