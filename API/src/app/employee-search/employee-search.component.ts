@@ -20,7 +20,7 @@ export class SearchComponent{
     {
       this.id = '0';
       this.id_change.emit('0');
-      this.router.navigateByUrl('/home/0');
+      //this.router.navigateByUrl('/home/0');
       return;
     }
 
