@@ -40,8 +40,6 @@ export class EmployeeListComponent implements OnInit, OnChanges{
     {
       this.highlightRow = index; 
       this.selectedId = index + 1;
-      console.log(this.highlightRow);
-      console.log(this.selectedId);
     }
     
 
