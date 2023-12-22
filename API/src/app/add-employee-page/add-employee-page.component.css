@@ -1,0 +1,36 @@
+#StartseiteBtn{
+
+}
+#container-id{
+    margin-left: 30%;
+}
+#container-forname{
+    margin-left: 30%;
+    margin-right: 10%;
+    float: left;
+}
+#container-lastname{
+    
+}
+#container-city{
+    margin-left: 30%;
+    margin-right: 10%;
+    float: left;
+}
+#container-street{
+
+}
+#container-plz{
+    margin-left: 30%;
+    margin-right: 10%;
+    float: left;
+}
+#container-telephone{
+
+}
+#speicherBtn{
+    margin-left: 30%;
+}
+#voidBtn{
+    margin-left: 30px;
+}
