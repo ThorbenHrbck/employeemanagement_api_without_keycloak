@@ -35,6 +35,7 @@ export class EmployeeListComponent implements OnInit, OnChanges{
       this.employee = undefined;
       this.employees = this.employeeService.getEmployees(); 
     }
+    this.selected_id_emit.emit(-1);
   }
 
   ClickedRow(index: number) : void

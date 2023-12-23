@@ -35,6 +35,7 @@ export class CrudButtonComponent implements OnChanges{
     {
       this.employeeService.deleteEmployee(this.input_id).subscribe(employee => this.employee = employee);
     }
+    window.location.reload();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
