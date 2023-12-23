@@ -14,7 +14,6 @@ export class EmployeeListComponent implements OnInit, OnChanges{
   employee: Employee | undefined;
 
   highlightRow: number = 0; //row that should be highlighted when clicked on it
-  selectedId: number | undefined; //selected employee's id
 
   @Output() selected_id_emit = new EventEmitter<number | undefined>(); //emitter to send the selected employee id back to home-page-component
 
@@ -41,16 +40,11 @@ export class EmployeeListComponent implements OnInit, OnChanges{
   }
 
   //when highlightedRow matches the index on the table in html then that row will be highlighted
-  ClickedRow(index: number) : void
+  ClickedRow(index: number, selected_id: number = 0) : void
     {
       this.highlightRow = index; 
-      this.selectedId = index + 1;
-      if(this.employee)
-      {
-        this.selectedId = this.employee.id;
-      }
-
-      this.selected_id_emit.emit(this.selectedId);
+      console.log(selected_id);
+      this.selected_id_emit.emit(selected_id);
     }
     
 
