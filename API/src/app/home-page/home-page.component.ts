@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class HomePageComponent {
 
   
-  public searched_id_string: string | null = '0';
-  public selected_employee_id: number | undefined = -1;
+  public searched_id_string: string | null = '0'; //from employee-search-component
+  public selected_employee_id: number | undefined = -1; //from selected employee in employee-list-component
   constructor() {}
 
   change_id(id_string: string | null)

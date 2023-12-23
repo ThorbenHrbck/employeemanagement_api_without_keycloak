@@ -11,20 +11,15 @@ export class SearchComponent{
   constructor(private router: Router) {}
 
   @Output() id_emit = new EventEmitter<string | null>();
-  id : string | null = '0';
 
 
   search(id_string: string): void {
-    //Daten von einem eingabefeld sind immer ein string
+    //values from an input field will always be a string
     if(id_string.length === 0 || id_string === '0')
     {
-      this.id = '0';
       this.id_emit.emit('0');
-      //this.router.navigateByUrl('/home/0');
       return;
     }
-
-    this.id = id_string;
-    this.id_emit.emit(this.id);
+    this.id_emit.emit(id_string);
   }
 }

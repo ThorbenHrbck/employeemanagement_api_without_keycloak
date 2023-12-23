@@ -13,7 +13,7 @@ export class CrudButtonComponent implements OnChanges{
     private router: Router)
   {}
   
-  @Input() input_id: number | undefined;
+  @Input() input_id: number | undefined; //selected employee's id from employee-list-component
 
   disable_button: boolean = false;
 
@@ -35,7 +35,7 @@ export class CrudButtonComponent implements OnChanges{
     {
       this.employeeService.deleteEmployee(this.input_id).subscribe(employee => this.employee = employee);
     }
-    window.location.reload();
+    window.location.reload(); //reload page so it is easier to see for the user that something did happen
   }
 
   ngOnChanges(changes: SimpleChanges): void {
