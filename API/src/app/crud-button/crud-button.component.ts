@@ -29,8 +29,15 @@ export class CrudButtonComponent implements OnChanges{
     this.router.navigateByUrl("/update-employee");
   }
 
+  btnDeleteEmployee() : void 
+  {
+    if(this.input_id !== undefined)
+    {
+      this.employeeService.deleteEmployee(this.input_id).subscribe(employee => this.employee = employee);
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.input_id);
     this.isInputIdValid();
   }
 

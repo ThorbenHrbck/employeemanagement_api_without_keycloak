@@ -21,6 +21,5 @@ export class HomePageComponent {
   change_selected_employee_id(id: number | undefined)
   {
     this.selected_employee_id = id;
-    console.log(this.selected_employee_id);
   }
 }

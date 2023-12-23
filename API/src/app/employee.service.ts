@@ -25,11 +25,6 @@ export class EmployeeService {
     return this.http.get<Employee>(url, this.httpOptions);
   }
 
-  searchEmployee(id: number): Observable<Employee[]> {
-    const url = `${this.swaggerURL}/${id}`;
-    return this.http.get<Employee[]>(url, this.httpOptions);
-  }
-
   /** POST: add a new employee to the server */
   addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(this.swaggerURL, employee, this.httpOptions)
@@ -38,7 +33,6 @@ export class EmployeeService {
   /** DELETE: delete the employee from the server */
   deleteEmployee(id: number): Observable<Employee> {
     const url = `${this.swaggerURL}/${id}`;
-
     return this.http.delete<Employee>(url, this.httpOptions)
   }
 
