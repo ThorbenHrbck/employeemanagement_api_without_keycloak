@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import { EmployeeService } from '../employee.service';
@@ -15,6 +15,8 @@ export class EmployeeListComponent implements OnInit, OnChanges{
 
   highlightRow: number = 0;
   selectedId: number | undefined;
+
+  @Output() selected_id_emit = new EventEmitter<number | undefined>();
 
   @Input() id_string: string | null | undefined;
 
@@ -43,6 +45,8 @@ export class EmployeeListComponent implements OnInit, OnChanges{
       {
         this.selectedId = this.employee.id;
       }
+
+      this.selected_id_emit.emit(this.selectedId);
     }
     
 

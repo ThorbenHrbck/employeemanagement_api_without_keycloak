@@ -9,14 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 export class HomePageComponent {
 
   
-  public id: string | null;
-  constructor(private route: ActivatedRoute)
-  {
-    this.id = this.route.snapshot.paramMap.get('id');
-  }
+  public searched_id_string: string | null = '0';
+  public selected_employee_id: number | undefined = -1;
+  constructor() {}
 
   change_id(id_string: string | null)
   {
-    this.id = id_string;
+    this.searched_id_string = id_string;
+  }
+
+  change_selected_employee_id(id: number | undefined)
+  {
+    this.selected_employee_id = id;
+    console.log(this.selected_employee_id);
   }
 }

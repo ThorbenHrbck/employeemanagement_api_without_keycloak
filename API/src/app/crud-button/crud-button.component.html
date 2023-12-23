@@ -8,11 +8,11 @@
     </p>
 
     <p>
-        <button class="button BearbeitenBtn" (click)="btnNavigateToUpdateEmployeePage()" >Bearbeiten</button>
+        <button class="button BearbeitenBtn" (click)="btnNavigateToUpdateEmployeePage()" [disabled]="disable_button">Bearbeiten</button>
     </p>
     
     <p>
-        <button class="button LoeschenBtn">Löschen</button>
+        <button class="button LoeschenBtn" [disabled]="disable_button">Löschen</button>
     </p>
     
 </body>
