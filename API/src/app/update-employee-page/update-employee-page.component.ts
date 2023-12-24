@@ -10,8 +10,17 @@ import { EmployeeService } from '../employee.service';
 })
 export class UpdateEmployeePageComponent implements OnInit{
 
-  private id: string | null = '0';
+  private id_string: string | null = '0';
   employee : Employee | undefined;
+  
+  id : number = 0;
+  firstName : string = '';
+  lastName : string = '';
+  city : string = '';
+  street : string = '';
+  postcode : string = '';
+  phone : string = '';
+
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
     private router: Router)
@@ -20,16 +29,53 @@ export class UpdateEmployeePageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
-    if(this.id !== null)
+    this.id_string = this.route.snapshot.paramMap.get('id');
+    console.log(this.id_string);
+    if(this.id_string !== null)
     {
-      this.employeeService.getEmployee(parseInt(this.id)).subscribe(employee => this.employee = employee);
+      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => this.employee = employee);
+      this.id = parseInt(this.id_string);
     }
   }
 
   btnReturnToHomePage() : void 
   {
     this.router.navigateByUrl("/home");
+  }
+
+  inputFirstName(firstName : string) : void
+  {
+    this.firstName = firstName;
+    console.log(this.firstName);
+  }
+
+  inputLastName(lastName : string) : void
+  {
+      this.lastName = lastName;
+      console.log(this.lastName);
+  }
+
+  inputCity(city : string) : void 
+  {
+    this.city = city;
+    console.log(this.city);
+  }
+
+  inputStreet(street : string) : void 
+  {
+    this.street = street;
+    console.log(this.street);
+  }
+
+  inputPostcode(postcode : string) : void 
+  {
+    this.postcode = postcode;
+    console.log(this.postcode);
+  }
+
+  inputPhone(phone : string) : void
+  {
+    this.phone = phone;
+    console.log(this.phone);
   }
 }
