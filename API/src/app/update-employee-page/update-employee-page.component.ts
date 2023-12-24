@@ -23,7 +23,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     console.log(this.id);
     if(this.id !== null)
     {
-      this.employeeService.getEmployee(1).subscribe(employee => this.employee = employee);
+      this.employeeService.getEmployee(parseInt(this.id)).subscribe(employee => this.employee = employee);
     }
     
   }
