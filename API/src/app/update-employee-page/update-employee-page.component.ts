@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../Employee';
 import { EmployeeService } from '../employee.service';
 
@@ -13,7 +13,8 @@ export class UpdateEmployeePageComponent implements OnInit{
   private id: string | null = '0';
   employee : Employee | undefined;
   constructor(private route: ActivatedRoute,
-    private employeeService: EmployeeService)
+    private employeeService: EmployeeService,
+    private router: Router)
   {
     
   }
@@ -25,6 +26,10 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employeeService.getEmployee(parseInt(this.id)).subscribe(employee => this.employee = employee);
     }
-    
+  }
+
+  btnReturnToHomePage() : void 
+  {
+    this.router.navigateByUrl("/home");
   }
 }
