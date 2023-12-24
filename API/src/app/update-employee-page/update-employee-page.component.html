@@ -6,27 +6,33 @@
 </div>
 <div id="container-forname">
     <p>Vorname</p>
-    <input type="text" *ngIf="employee" value="{{employee.firstName}}" #searchBox (input)="inputFirstName(searchBox.value)">
+    <input type="text" *ngIf="employee" value="{{employee.firstName}}" #searchBox (input)="inputFirstName(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <div id="container-lastname">
     <p>Nachname</p>
-    <input type="text" *ngIf="employee" value="{{employee.lastName}}" #searchBox (input)="inputLastName(searchBox.value)">
+    <input type="text" *ngIf="employee" value="{{employee.lastName}}" #searchBox (input)="inputLastName(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <div id="container-city">
     <p>Wohnort</p>
-    <input type="text" *ngIf="employee" value="{{employee.city}}" #searchBox (input)="inputCity(searchBox.value)">
+    <input type="text" *ngIf="employee" value="{{employee.city}}" #searchBox (input)="inputCity(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <div id="container-street">
     <p>Straße</p>
-    <input type="text" *ngIf="employee" value="{{employee.street}}" #searchBox (input)="inputStreet(searchBox.value)">
+    <input type="text" *ngIf="employee" value="{{employee.street}}" #searchBox (input)="inputStreet(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <div id="container-plz">
     <p>PLZ</p>
-    <input type="number" *ngIf="employee" value="{{employee.postcode}}" #searchBox (input)="inputPostcode(searchBox.value)">
+    <input type="number" *ngIf="employee" value="{{employee.postcode}}" #searchBox (input)="inputPostcode(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <div id="container-telephone">
     <p>Telefonnummer</p>
-    <input type="text" *ngIf="employee" value="{{employee.phone}}" #searchBox (input)="inputPhone(searchBox.value)">
+    <input type="text" *ngIf="employee" value="{{employee.phone}}" #searchBox (input)="inputPhone(searchBox.value)"
+    [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <br><br>
 <button id="speicherBtn">Speichern</button>
