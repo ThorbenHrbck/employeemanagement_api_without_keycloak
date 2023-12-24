@@ -26,7 +26,8 @@ export class CrudButtonComponent implements OnChanges{
 
   btnNavigateToUpdateEmployeePage() : void
   {
-    this.router.navigateByUrl("/update-employee");
+    let id_string = this.input_id?.toString();
+    this.router.navigateByUrl("/update-employee/" + id_string);
   }
 
   btnDeleteEmployee() : void 

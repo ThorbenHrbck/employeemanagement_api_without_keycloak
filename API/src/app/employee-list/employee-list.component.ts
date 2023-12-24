@@ -43,7 +43,6 @@ export class EmployeeListComponent implements OnInit, OnChanges{
   ClickedRow(index: number, selected_id: number = 0) : void
     {
       this.highlightRow = index; 
-      console.log(selected_id);
       this.selected_id_emit.emit(selected_id);
     }
     
