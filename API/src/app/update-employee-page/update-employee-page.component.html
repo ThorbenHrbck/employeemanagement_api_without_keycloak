@@ -35,5 +35,5 @@
     [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <br><br>
-<button id="speicherBtn">Speichern</button>
+<button id="speicherBtn" [disabled]="disableButton()" (click)="btnUpdateEmployee()">Speichern</button>
 <button id="voidBtn">Felder leeren</button>

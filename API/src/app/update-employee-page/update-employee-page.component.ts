@@ -12,14 +12,7 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   private id_string: string | null = '0';
   employee : Employee | undefined;
-  
-  id : number = 0;
-  firstName : string = '';
-  lastName : string = '';
-  city : string = '';
-  street : string = '';
-  postcode : string = '';
-  phone : string = '';
+
 
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
@@ -30,52 +23,114 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   ngOnInit(): void {
     this.id_string = this.route.snapshot.paramMap.get('id');
-    console.log(this.id_string);
     if(this.id_string !== null)
     {
-      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => this.employee = employee);
-      this.id = parseInt(this.id_string);
+      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => {this.employee = employee; 
+      });
     }
   }
 
   btnReturnToHomePage() : void 
   {
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/home"); 
   }
 
   inputFirstName(firstName : string) : void
   {
-    this.firstName = firstName;
-    console.log(this.firstName);
+    if(this.employee)
+    {
+      this.employee.firstName = firstName;
+    }
   }
 
   inputLastName(lastName : string) : void
   {
-      this.lastName = lastName;
-      console.log(this.lastName);
+    if(this.employee)
+    {
+      this.employee.lastName = lastName;
+    }
   }
 
   inputCity(city : string) : void 
   {
-    this.city = city;
-    console.log(this.city);
+    if(this.employee)
+    {
+      this.employee.city = city;
+    }
   }
 
   inputStreet(street : string) : void 
   {
-    this.street = street;
-    console.log(this.street);
+    if(this.employee)
+    {
+      this.employee.street = street;
+    }
   }
 
   inputPostcode(postcode : string) : void 
   {
-    this.postcode = postcode;
-    console.log(this.postcode);
+    if(this.employee)
+    {
+      this.employee.postcode = postcode;
+    }
   }
 
   inputPhone(phone : string) : void
   {
-    this.phone = phone;
-    console.log(this.phone);
+    if(this.employee)
+    {
+      this.employee.phone = phone;
+    }
+  }
+
+  disableButton() : boolean
+  {
+    if(this.employee)
+    {
+      if(!this.employee.firstName || this.employee.firstName.length === 0)
+      {
+        return true;
+      }
+
+      if(!this.employee.lastName || this.employee.lastName.length === 0)
+      {
+        return true;
+      }
+
+      if(!this.employee.city || this.employee.city.length === 0)
+      {
+        return true;
+      }
+
+      if(!this.employee.street || this.employee.street.length === 0)
+      {
+        return true;
+      }
+
+      if(!this.employee.postcode || this.employee.postcode.length === 0)
+      {
+        return true;
+      }
+
+      if(!this.employee.phone || this.employee.phone.length === 0)
+      {
+        return true;
+      }
+    }    
+    return false;
+  }
+
+  btnUpdateEmployee() : void
+  {
+    console.log(this.employee?.firstName);
+    console.log(this.employee?.lastName);
+    console.log(this.employee?.city);
+    console.log(this.employee?.street);
+    console.log(this.employee?.postcode);
+    console.log(this.employee?.phone);
+    if(this.employee)
+    {
+      this.employeeService.updateEmployee(this.employee).subscribe(employee => this.employee = employee);
+    }
   }
 }

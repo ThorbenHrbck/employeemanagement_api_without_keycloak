@@ -27,7 +27,7 @@ export class EmployeeService {
 
   /** POST: add a new employee to the server */
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.swaggerURL, employee, this.httpOptions)
+    return this.http.post<Employee>(this.swaggerURL, employee)
   }
 
   /** DELETE: delete the employee from the server */
@@ -39,7 +39,6 @@ export class EmployeeService {
   /** PUT: update the employee on the server */
   updateEmployee(employee: Employee): Observable<Employee> {
     const url = `${this.swaggerURL}/${employee.id}`;
-    return this.http.put<Employee>(url, employee, this.httpOptions)
+    return this.http.put<Employee>(url, employee)
   }
-
 }
