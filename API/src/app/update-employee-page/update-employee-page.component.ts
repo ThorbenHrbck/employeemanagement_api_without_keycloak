@@ -15,6 +15,13 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   isEmployeeUpdated : boolean = false;
 
+  firstName : string = '';
+  lastName : string = '';
+  city : string = '';
+  street : string = '';
+  postcode : string = '';
+  phone : string = '';
+
 
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
@@ -28,6 +35,36 @@ export class UpdateEmployeePageComponent implements OnInit{
     if(this.id_string !== null)
     {
       this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => {this.employee = employee; 
+        if(this.employee && this.employee.firstName)
+        {
+          this.firstName = this.employee.firstName;
+        }
+
+        if(this.employee && this.employee.lastName)
+        {
+          this.lastName = this.employee.lastName;
+        }
+
+        if(this.employee && this.employee.city)
+        {
+          this.city = this.employee.city;
+        }
+
+        if(this.employee && this.employee.street)
+        {
+          this.street = this.employee.street;
+        }
+
+        if(this.employee && this.employee.postcode)
+        {
+          this.postcode = this.employee.postcode;
+        }
+
+        if(this.employee && this.employee.phone)
+        {
+          this.phone = this.employee.phone;
+        }
+        
       });
     }
   }
@@ -39,107 +76,108 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   inputFirstName(firstName : string) : void
   {
-    if(this.employee)
-    {
-      this.employee.firstName = firstName;
-    }
+    this.firstName = firstName;
     this.isEmployeeUpdated = false;
   }
 
   inputLastName(lastName : string) : void
   {
-    if(this.employee)
-    {
-      this.employee.lastName = lastName;
-    }
+    this.lastName = lastName;
     this.isEmployeeUpdated = false;
   }
 
   inputCity(city : string) : void 
   {
-    if(this.employee)
-    {
-      this.employee.city = city;
-    }
+    this.city = city;
     this.isEmployeeUpdated = false;
   }
 
   inputStreet(street : string) : void 
   {
-    if(this.employee)
-    {
-      this.employee.street = street;
-    }
+    this.street = street;
     this.isEmployeeUpdated = false;
   }
 
   inputPostcode(postcode : string) : void 
   {
-    if(this.employee)
-    {
-      this.employee.postcode = postcode;
-    }
+    this.postcode = postcode;
     this.isEmployeeUpdated = false;
   }
 
   inputPhone(phone : string) : void
   {
-    if(this.employee)
-    {
-      this.employee.phone = phone;
-    }
+    this.phone = phone;
     this.isEmployeeUpdated = false;
   }
 
   disableButton() : boolean
   {
-    if(this.employee)
+    if(this.firstName.length === 0)
     {
-      if(!this.employee.firstName || this.employee.firstName.length === 0)
-      {
-        return true;
-      }
+      return true;
+    }
 
-      if(!this.employee.lastName || this.employee.lastName.length === 0)
-      {
-        return true;
-      }
+    if(this.lastName.length === 0)
+    {
+      return true;
+    }
 
-      if(!this.employee.city || this.employee.city.length === 0)
-      {
-        return true;
-      }
+    if(this.city.length === 0)
+    {
+      return true;
+    }
 
-      if(!this.employee.street || this.employee.street.length === 0)
-      {
-        return true;
-      }
+    if(this.street.length === 0)
+    {
+      return true;
+    }
 
-      if(!this.employee.postcode || this.employee.postcode.length === 0)
-      {
-        return true;
-      }
+    if(this.postcode.length === 0)
+    {
+      return true;
+    }
 
-      if(!this.employee.phone || this.employee.phone.length === 0)
-      {
-        return true;
-      }
-    }    
+    if(this.phone.length === 0)
+    {
+      return true;
+    }
     return false;
+  }
+
+  btnEmptyInputFields() : void 
+  {
+    this.firstName = '';
+    this.lastName = '';
+    this.city = '';
+    this.street = '';
+    this.postcode = '';
+    this.phone = '';
   }
 
   btnUpdateEmployee() : void
   {
-    console.log(this.employee?.firstName);
-    console.log(this.employee?.lastName);
-    console.log(this.employee?.city);
-    console.log(this.employee?.street);
-    console.log(this.employee?.postcode);
-    console.log(this.employee?.phone);
+    console.log(this.firstName);
+    console.log(this.lastName);
+    console.log(this.city);
+    console.log(this.street);
+    console.log(this.postcode);
+    console.log(this.phone);
     if(this.employee)
     {
-      this.employeeService.updateEmployee(this.employee).subscribe(employee => this.employee = employee);
-      this.isEmployeeUpdated = true;
+      this.employee.firstName = this.firstName;
+      this.employee.lastName = this.lastName;
+      this.employee.city = this.city;
+      this.employee.street = this.street;
+      this.employee.postcode = this.postcode;
+      this.employee.phone = this.phone;
+
+      console.log(this.employee.id);
+      console.log(this.employee.firstName);
+
+      this.employeeService.updateEmployee(this.employee).subscribe(employee => {this.employee = employee;
+      console.log(this.employee.firstName);
+      this.isEmployeeUpdated = true;});
+      
     }
   }
 }

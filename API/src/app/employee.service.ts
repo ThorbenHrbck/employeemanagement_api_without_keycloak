@@ -39,6 +39,6 @@ export class EmployeeService {
   /** PUT: update the employee on the server */
   updateEmployee(employee: Employee): Observable<Employee> {
     const url = `${this.swaggerURL}/${employee.id}`;
-    return this.http.put<Employee>(url, employee)
+    return this.http.put<Employee>(url, employee);
   }
 }
