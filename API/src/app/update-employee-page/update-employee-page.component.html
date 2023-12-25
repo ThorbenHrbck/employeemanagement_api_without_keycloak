@@ -35,5 +35,9 @@
     [style.border-color]="searchBox.value !== '' ? 'lightblue' : 'red'">
 </div>
 <br><br>
+<div *ngIf="isEmployeeUpdated">
+    <p >Mitarbeiter erfolgreich bearbeitet</p>
+</div>
+
 <button id="speicherBtn" [disabled]="disableButton()" (click)="btnUpdateEmployee()">Speichern</button>
 <button id="voidBtn">Felder leeren</button>

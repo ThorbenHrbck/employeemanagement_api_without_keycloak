@@ -13,6 +13,8 @@ export class UpdateEmployeePageComponent implements OnInit{
   private id_string: string | null = '0';
   employee : Employee | undefined;
 
+  isEmployeeUpdated : boolean = false;
+
 
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
@@ -41,6 +43,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.firstName = firstName;
     }
+    this.isEmployeeUpdated = false;
   }
 
   inputLastName(lastName : string) : void
@@ -49,6 +52,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.lastName = lastName;
     }
+    this.isEmployeeUpdated = false;
   }
 
   inputCity(city : string) : void 
@@ -57,6 +61,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.city = city;
     }
+    this.isEmployeeUpdated = false;
   }
 
   inputStreet(street : string) : void 
@@ -65,6 +70,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.street = street;
     }
+    this.isEmployeeUpdated = false;
   }
 
   inputPostcode(postcode : string) : void 
@@ -73,6 +79,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.postcode = postcode;
     }
+    this.isEmployeeUpdated = false;
   }
 
   inputPhone(phone : string) : void
@@ -81,6 +88,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     {
       this.employee.phone = phone;
     }
+    this.isEmployeeUpdated = false;
   }
 
   disableButton() : boolean
@@ -131,6 +139,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     if(this.employee)
     {
       this.employeeService.updateEmployee(this.employee).subscribe(employee => this.employee = employee);
+      this.isEmployeeUpdated = true;
     }
   }
 }
