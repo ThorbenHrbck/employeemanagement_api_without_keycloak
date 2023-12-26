@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
@@ -13,20 +14,39 @@ export class LoginPageComponent {
   username : string = '';
   password : string = '';
 
+  timeOutCounter : number = 0;
+  timeOutTimeLeft : number | undefined;
+
+  showBlockText : boolean = false;
+  
+
   inputUsername(username : string) : void 
   {
     this.username = username
-    console.log(this.username);
+   
   }
 
   inputPassword(password : string) : void 
   {
     this.password = password
-    console.log(this.password)
   }
 
-  btnLogin() : void 
+  btnLogin(username : string, password : string) : void 
   {
-    
+    var currentTime = Date.now() / 1000;
+
+   if(this.timeOutTimeLeft === undefined || currentTime-this.timeOutTimeLeft > 1) 
+   {
+    this.showBlockText = false;
+    if(this.timeOutCounter < 3)
+    {
+      this.timeOutCounter++;
+    }else
+    {
+      this.timeOutCounter = 0;
+      this.timeOutTimeLeft = Date.now() / 1000; 
+      this.showBlockText = true;
+    }
+   }
   }
 }

@@ -1,5 +1,6 @@
 <div>
     <input type="text" placeholder="Username" #searchBox (input)="inputUsername(searchBox.value)">
     <input type="password" placeholder="Password" #searchBox (input)="inputPassword(searchBox.value)">
-    <button type="button">Login</button>
+    <button type="button" (click)="btnLogin(username, password)">Login</button>
+    <p *ngIf="showBlockText">Zu viele Fehlversuche, Sperre für 2 Minuten</p>
 </div>
