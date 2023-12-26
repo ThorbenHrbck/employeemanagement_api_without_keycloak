@@ -47,6 +47,6 @@ export class EmployeeService {
     city: `${employee.city}`,
     phone: `${employee.phone}`}
 
-    return this.http.put<any>(url,body , this.httpOptions);
+    return this.http.put<any>(url, body, this.httpOptions);
   }
 }
