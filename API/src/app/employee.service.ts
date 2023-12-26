@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Employee } from './Employee';
 
 @Injectable({
@@ -37,8 +37,16 @@ export class EmployeeService {
   }
 
   /** PUT: update the employee on the server */
-  updateEmployee(employee: Employee): Observable<Employee> {
+  updateEmployee(employee: Employee): Observable<any> {
     const url = `${this.swaggerURL}/${employee.id}`;
-    return this.http.put<Employee>(url, employee);
+
+    const body = { lastName: `${employee.lastName}`,
+    firstName: `${employee.firstName}`,
+    street: `${employee.street}`,
+    postcode: `${employee.postcode}`,
+    city: `${employee.city}`,
+    phone: `${employee.phone}`}
+
+    return this.http.put<any>(url,body , this.httpOptions);
   }
 }

@@ -22,7 +22,6 @@ export class UpdateEmployeePageComponent implements OnInit{
   postcode : string = '';
   phone : string = '';
 
-
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
     private router: Router)
@@ -174,10 +173,8 @@ export class UpdateEmployeePageComponent implements OnInit{
       console.log(this.employee.id);
       console.log(this.employee.firstName);
 
-      this.employeeService.updateEmployee(this.employee).subscribe(employee => {this.employee = employee;
-      console.log(this.employee.firstName);
-      this.isEmployeeUpdated = true;});
-      
+      this.employeeService.updateEmployee(this.employee).subscribe(() => {this.isEmployeeUpdated = true;});
+      //this.isEmployeeUpdated = true;
     }
   }
 }
