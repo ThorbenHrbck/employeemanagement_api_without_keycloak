@@ -13,7 +13,7 @@
       <th>Telefonnummer</th>
     </tr>
     
-    <tr *ngFor="let e of employees | async; let i = index;" (click)="ClickedRow(i)"
+    <tr *ngFor="let e of employees | async; let i = index;" (click)="ClickedRow(i, e.id)"
     [style.background-color]="highlightRow==i ? 'lightblue' : 'white'">
       <td>{{e.id}}</td>
       <td>{{e.lastName}}</td>
@@ -24,7 +24,7 @@
       <td>{{e.phone}}</td>
     </tr>
 
-    <tr *ngIf="employee" (click)="ClickedRow(0)" [style.background-color]="highlightRow==0 ? 'lightblue' : 'white'">
+    <tr *ngIf="employee" (click)="ClickedRow(0, employee.id)" [style.background-color]="highlightRow==0 ? 'lightblue' : 'white'">
       <td>{{employee.id}}</td>
       <td>{{employee.lastName}}</td>
       <td>{{employee.firstName}}</td>

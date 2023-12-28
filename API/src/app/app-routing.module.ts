@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'help', component: HelpPageComponent},
   { path: 'home', component: HomePageComponent},
   { path: 'add-employee', component: AddEmployeePageComponent},
-  { path: 'update-employee', component: UpdateEmployeePageComponent},
+  { path: 'update-employee/:id', component: UpdateEmployeePageComponent},
   { path: 'login', component: LoginPageComponent},
 ];
 
