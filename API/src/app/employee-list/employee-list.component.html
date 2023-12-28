@@ -16,21 +16,21 @@
     <tr *ngFor="let e of employees | async; let i = index;" (click)="ClickedRow(i, e.id)"
     [style.background-color]="highlightRow==i ? 'lightblue' : 'white'">
       <td>{{e.id}}</td>
-      <td>{{e.lastName}}</td>
       <td>{{e.firstName}}</td>
+      <td>{{e.lastName}}</td>
+      <td>{{e.city}}</td>
       <td>{{e.street}}</td>
       <td>{{e.postcode}}</td>
-      <td>{{e.city}}</td>
       <td>{{e.phone}}</td>
     </tr>
 
     <tr *ngIf="employee" (click)="ClickedRow(0, employee.id)" [style.background-color]="highlightRow==0 ? 'lightblue' : 'white'">
       <td>{{employee.id}}</td>
-      <td>{{employee.lastName}}</td>
       <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.city}}</td>
       <td>{{employee.street}}</td>
       <td>{{employee.postcode}}</td>
-      <td>{{employee.city}}</td>
       <td>{{employee.phone}}</td>
     </tr>
   </table>
