@@ -1,16 +1,17 @@
-.container {
+.container{
   display: flex;
-  justify-content: space-evenly;
+  margin-top: 2%;
 }
 
 #logo-ID{
   float: left;
 }
+
 #title-ID{
   text-align: center;
 }
 
-hr { 
+hr{ 
   height: 1px; 
   margin: 0px;
   background: black;

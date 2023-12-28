@@ -1,33 +1,52 @@
-<button id="StartseiteBtn">Startseite</button>
-<p id="add-member">Mitarbeiten hinzufügen</p>
-<div id="container-id">
-    <p>id</p>
-    <input type="number">
-</div>
-<div id="container-forname">
-    <p>Vorname</p>
-    <input type="text">
-</div>
-<div id="container-lastname">
-    <p>Nachname</p>
-    <input type="text">
-</div>
-<div id="container-city">
-    <p>Wohnort</p>
-    <input type="text">
-</div>
-<div id="container-street">
-    <p>Straße</p>
-    <input type="text">
-</div>
-<div id="container-plz">
-    <p>PLZ</p>
-    <input type="number">
-</div>
-<div id="container-telephone">
-    <p>Telefonnummer</p>
-    <input id="bla" type="number">
-</div>
-<br><br>
-<button id="speicherBtn">Speichern</button>
-<button id="voidBtn">Felder leeren</button>
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="add-employee-page.component.css">
+</head>
+<body>
+    <div id="main-content">
+        <div class="header-container">
+            <button onclick="location.href='index.html'">Startseite</button>
+            <p>Mitarbeiter hinzufügen</p>
+        </div>
+        <hr>
+        <div class="input-container">
+            <div>
+                <label for="field1">ID</label>
+                <input id="inpit-ID" type="number">
+            </div>
+            <div>
+                <!--does not remove, is used for arrangement, otherwise first name next to id-->
+            </div>
+            <div>
+                <label for="field2">Vorname</label>
+                <input id="input-forname" type="text">
+            </div>
+            <div>
+                <label for="field3">Nachname</label>
+                <input id="input-lastname" type="text">
+            </div>
+            <div>
+                <label for="field4">Wohnort</label>
+                <input id="input-City" type="text">
+            </div>
+            <div>
+                <label for="field5">Straße</label>
+                <input id="input-street" type="text">
+            </div>
+            <div>
+                <label for="field6">PLZ</label>
+                <input id="input-plz" type="number">
+            </div>
+            <div>
+                <label for="field7">Telefonnummer</label>
+                <input id="input-telefon" type="number" >
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="button-safe" onclick="submitForm()">Speichern</button>
+            <button id="button-reset" onclick="resetForm()">Felder leeren</button>
+        </div>
+    </div>
+</body>

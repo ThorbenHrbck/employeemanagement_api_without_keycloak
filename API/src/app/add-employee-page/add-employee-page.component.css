@@ -1,24 +1,66 @@
-#container-id{
-    margin-left: 30%;
+/* Setzt die Standard-Schriftfamilie und entfernt margin/padding vom gesamten Dokument */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-#container-forname{
-    margin-left: 30%;
-    margin-right: 10%;
-    float: left;
+hr{ 
+    border: dashed 1px;
 }
-#container-city{
-    margin-left: 30%;
-    margin-right: 10%;
-    float: left;
+
+/* Flexbox für den Header, zentriert den Inhalt und platziert ihn zwischen den Rändern */
+.header-container {
+    display: flex;
+    margin-bottom: 20px; /*entfernung zu unteren Elementen*/
 }
-#container-plz{
-    margin-left: 30%;
-    margin-right: 10%;
-    float: left;
+
+.header-container button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
 }
-#speicherBtn{
-    margin-left: 30%;
+
+.header-container p{
+    margin: 0 auto;
 }
-#voidBtn{
-    margin-left: 30px;
+
+/* Flexbox für die Eingabefelder, erlaubt Zeilenumbruch bei kleineren Bildschirmen */
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Stilisiert jedes Eingabefeld */
+.input-container div {
+    width: 45%;
+    margin-bottom: 4%;
+}
+
+/* Stilisiert die Eingabefelder selbst, nimmt die volle Breite des Elternelements ein */
+.input-container input {
+    width: 100%;
+    padding: 5px;
+}
+
+/* Stilisiert den Container für die Buttons und zentriert sie */
+.button-container {
+    display: flex;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+/* Stilisiert die Buttons selbst */
+.button-container button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
 }
