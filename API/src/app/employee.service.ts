@@ -10,7 +10,7 @@ export class EmployeeService {
 
   private swaggerURL = 'http://localhost:8089/employees';
 
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json' })}
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,16 @@ export class EmployeeService {
 
   /** POST: add a new employee to the server */
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.swaggerURL, employee)
+    const body = { id: employee.id,
+    lastName: `${employee.lastName}`,
+    firstName: `${employee.firstName}`,
+    street: `${employee.street}`,
+    postcode: `${employee.postcode}`,
+    city: `${employee.city}`,
+    phone: `${employee.phone}`}
+
+    console.log(body);
+    return this.http.post<Employee>(this.swaggerURL, body, this.httpOptions)
   }
 
   /** DELETE: delete the employee from the server */

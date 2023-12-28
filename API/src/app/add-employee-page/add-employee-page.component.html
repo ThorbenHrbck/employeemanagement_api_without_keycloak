@@ -14,39 +14,45 @@
         <div class="input-container">
             <div>
                 <label for="field1">ID</label>
-                <input id="inpit-ID" type="number">
+                <input id="inpit-ID" type="number" [value]="id" disabled>
             </div>
             <div>
                 <!--does not remove, is used for arrangement, otherwise first name next to id-->
             </div>
             <div>
                 <label for="field2">Vorname</label>
-                <input id="input-forname" type="text">
+                <input id="input-forname" type="text" [value]="firstName" #searchBox (input)="inputFirstName(searchBox.value)"
+                [style.border-color]="firstName !== '' ? 'blue' : 'red'">
             </div>
             <div>
                 <label for="field3">Nachname</label>
-                <input id="input-lastname" type="text">
+                <input id="input-lastname" type="text" [value]="lastName" #searchBox2 (input)="inputLastName(searchBox2.value)"
+                [style.border-color]="lastName !== '' ? 'blue' : 'red'">
             </div>
             <div>
                 <label for="field4">Wohnort</label>
-                <input id="input-City" type="text">
+                <input id="input-City" type="text" [value]="city" #searchBox3 (input)="inputCity(searchBox3.value)"
+                [style.border-color]="city !== '' ? 'blue' : 'red'">
             </div>
             <div>
                 <label for="field5">Straße</label>
-                <input id="input-street" type="text">
+                <input id="input-street" type="text" [value]="street" #searchBox4 (input)="inputStreet(searchBox4.value)"
+                [style.border-color]="street !== '' ? 'blue' : 'red'">
             </div>
             <div>
                 <label for="field6">PLZ</label>
-                <input id="input-plz" type="number">
+                <input id="input-plz" type="number" [value]="postcode" #searchBox5 (input)="inputPostcode(searchBox5.value)"
+                [style.border-color]="postcode !== '' ? 'blue' : 'red'">
             </div>
             <div>
                 <label for="field7">Telefonnummer</label>
-                <input id="input-telefon" type="number" >
+                <input id="input-telefon" type="text" [value]="phone" #searchBox6 (input)="inputPhone(searchBox6.value)"
+                [style.border-color]="phone !== '' ? 'blue' : 'red'">
             </div>
         </div>
         <div class="button-container">
-            <button id="button-safe" onclick="submitForm()">Speichern</button>
-            <button id="button-reset" onclick="resetForm()">Felder leeren</button>
+            <button id="button-safe" (click)="btnAddEmployee()" [disabled]="disableButton()">Speichern</button>
+            <button id="button-reset" (click)="btnEmptyInputFields()">Felder leeren</button>
         </div>
     </div>
 </body>
