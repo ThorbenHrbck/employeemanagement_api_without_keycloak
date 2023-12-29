@@ -13,9 +13,8 @@ export class LoginService {
 
   token : string = '';
 
-  url : string = 'http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token '
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
-'Accept': 'application/x-www-form-urlencoded'})}
+  url : string = 'http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token'
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})}
   
 
   login(username : string, password : string)
