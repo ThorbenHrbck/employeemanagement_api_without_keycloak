@@ -50,6 +50,11 @@
                 [style.border-color]="phone !== '' ? 'blue' : 'red'">
             </div>
         </div>
+
+        <div *ngIf="isNewTextTypedIn">
+            <p >Mitarbeiter erfolgreich hinzugefügt</p>
+        </div>
+
         <div class="button-container">
             <button id="button-safe" (click)="btnAddEmployee()" [disabled]="disableButton()">Speichern</button>
             <button id="button-reset" (click)="btnEmptyInputFields()">Felder leeren</button>

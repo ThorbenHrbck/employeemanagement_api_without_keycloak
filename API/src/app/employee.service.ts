@@ -34,8 +34,6 @@ export class EmployeeService {
     postcode: `${employee.postcode}`,
     city: `${employee.city}`,
     phone: `${employee.phone}`}
-
-    console.log(body);
     return this.http.post<Employee>(this.swaggerURL, body, this.httpOptions)
   }
 

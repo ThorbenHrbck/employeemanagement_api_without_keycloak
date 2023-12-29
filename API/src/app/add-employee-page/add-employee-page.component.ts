@@ -87,7 +87,8 @@ export class AddEmployeePageComponent implements OnInit{
     this.newEmployee.phone = this.phone;
 
     console.log(this.newEmployee);
-    this.employeeService.addEmployee(this.newEmployee).subscribe(employee => {console.log(employee)});
+    this.employeeService.addEmployee(this.newEmployee).subscribe(employee => {this.ngOnInit();
+    this.isNewTextTypedIn = true;});
     
   }
 
