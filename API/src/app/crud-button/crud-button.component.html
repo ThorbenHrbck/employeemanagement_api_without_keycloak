@@ -4,15 +4,15 @@
 
 <body>
     <p>
-        <button class="button HinzufuegenBtn" (click)="btnNavigateToAddEmployeePage()">Hinzufügen</button>
+        <button type="button" class="button" (click)="btnNavigateToAddEmployeePage()">Hinzufügen</button>
     </p>
 
     <p>
-        <button class="button BearbeitenBtn" (click)="btnNavigateToUpdateEmployeePage()" [disabled]="disable_button">Bearbeiten</button>
+        <button type="button" class="button" (click)="btnNavigateToUpdateEmployeePage()" [disabled]="disableButton">Bearbeiten</button>
     </p>
     
     <p>
-        <button class="button LoeschenBtn" (click)="btnDeleteEmployee()" [disabled]="disable_button">Löschen</button>
+        <button type="button" class="button" (click)="btnDeleteEmployee()" [disabled]="disableButton">Löschen</button>
     </p>
     
 </body>

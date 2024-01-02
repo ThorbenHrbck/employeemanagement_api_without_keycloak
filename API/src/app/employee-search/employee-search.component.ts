@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -8,18 +7,18 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent{
   
-  constructor(private router: Router) {}
+  constructor() {}
 
-  @Output() id_emit = new EventEmitter<string | null>();
+  @Output() idEmit = new EventEmitter<string | null>();
 
 
-  search(id_string: string): void {
+  search(idString: string): void {
     //values from an input field will always be a string
-    if(id_string.length === 0 || id_string === '0')
+    if(idString.length === 0)
     {
-      this.id_emit.emit('0');
+      this.idEmit.emit('0');
       return;
     }
-    this.id_emit.emit(id_string);
+    this.idEmit.emit(idString);
   }
 }

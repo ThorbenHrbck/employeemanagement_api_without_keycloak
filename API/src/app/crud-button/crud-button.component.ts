@@ -13,9 +13,9 @@ export class CrudButtonComponent implements OnChanges{
     private router: Router)
   {}
   
-  @Input() input_id: number | undefined; //selected employee's id from employee-list-component
+  @Input() inputId: number | undefined; //selected employee's id from employee-list-component
 
-  disable_button: boolean = false;
+  disableButton: boolean = false;
 
   employee: Employee | undefined;
 
@@ -26,15 +26,15 @@ export class CrudButtonComponent implements OnChanges{
 
   btnNavigateToUpdateEmployeePage() : void
   {
-    let id_string = this.input_id?.toString();
+    let id_string = this.inputId?.toString();
     this.router.navigateByUrl("/update-employee/" + id_string);
   }
 
   btnDeleteEmployee() : void 
   {
-    if(this.input_id !== undefined)
+    if(this.inputId !== undefined)
     {
-      this.employeeService.deleteEmployee(this.input_id).subscribe(employee => {this.employee = employee, 
+      this.employeeService.deleteEmployee(this.inputId).subscribe(employee => {this.employee = employee, 
         window.location.reload(); //reload page so it is easier to see for the user that something did happen
       });
     }
@@ -46,12 +46,12 @@ export class CrudButtonComponent implements OnChanges{
 
   isInputIdValid() : void  
   {
-    if(this.input_id !== undefined && this.input_id >= 1)
+    if(this.inputId !== undefined && this.inputId >= 1)
     {
-      this.disable_button = false;
+      this.disableButton = false;
     }else
     {
-      this.disable_button = true;
+      this.disableButton = true;
     }
   }
 }

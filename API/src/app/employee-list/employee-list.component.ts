@@ -15,9 +15,9 @@ export class EmployeeListComponent implements OnInit, OnChanges{
 
   highlightRow: number = 0; //row that should be highlighted when clicked on it
 
-  @Output() selected_id_emit = new EventEmitter<number | undefined>(); //emitter to send the selected employee id back to home-page-component
+  @Output() selectedIdEmit = new EventEmitter<number | undefined>(); //emitter to send the selected employee id back to home-page-component
 
-  @Input() id_string: string | null | undefined; //searched id from  employee-search-component
+  @Input() idString: string | null | undefined; //searched id from  employee-search-component
 
   constructor(private employeeService: EmployeeService) {
     
@@ -27,23 +27,23 @@ export class EmployeeListComponent implements OnInit, OnChanges{
     this.highlightRow = -1; //resets the highlighted row so it does not show whenever a searched id is given
 
     //if true then only 1 employee is shown, else every employee is shown
-    if(this.id_string?.length !== 0 && this.id_string !== '0' && this.id_string !== undefined && this.id_string !== null)
+    if(this.idString?.length !== 0 && this.idString !== '0' && this.idString !== undefined && this.idString !== null)
     {
-      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => this.employee = employee);
+      this.employeeService.getEmployee(parseInt(this.idString)).subscribe(employee => this.employee = employee);
       this.employees = of([]);
     }else
     {
       this.employee = undefined;
       this.employees = this.employeeService.getEmployees(); 
     }
-    this.selected_id_emit.emit(-1);
+    this.selectedIdEmit.emit(-1);
   }
 
   //when highlightedRow matches the index on the table in html then that row will be highlighted
   ClickedRow(index: number, selected_id: number = 0) : void
     {
       this.highlightRow = index; 
-      this.selected_id_emit.emit(selected_id);
+      this.selectedIdEmit.emit(selected_id);
     }
     
 

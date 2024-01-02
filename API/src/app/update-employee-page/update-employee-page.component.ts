@@ -10,7 +10,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class UpdateEmployeePageComponent implements OnInit{
 
-  private id_string: string | null = '0';
+  private idString: string | null = '0';
   employee : Employee | undefined;
 
   isEmployeeUpdated : boolean = false;
@@ -30,10 +30,10 @@ export class UpdateEmployeePageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.id_string = this.route.snapshot.paramMap.get('id');
-    if(this.id_string !== null)
+    this.idString = this.route.snapshot.paramMap.get('id');
+    if(this.idString !== null)
     {
-      this.employeeService.getEmployee(parseInt(this.id_string)).subscribe(employee => {this.employee = employee; 
+      this.employeeService.getEmployee(parseInt(this.idString)).subscribe(employee => {this.employee = employee; 
         if(this.employee && this.employee.firstName)
         {
           this.firstName = this.employee.firstName;

@@ -14,7 +14,9 @@ export class LoginService {
   token : string = '';
 
   url : string = 'http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token'
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})}
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"})}
   
 
   login(username : string, password : string)

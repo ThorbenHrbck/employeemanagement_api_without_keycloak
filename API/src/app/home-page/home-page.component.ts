@@ -9,17 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 export class HomePageComponent {
 
   
-  public searched_id_string: string | null = '0'; //from employee-search-component
-  public selected_employee_id: number | undefined = -1; //from selected employee in employee-list-component
+  public searchedIdString: string | null = '0'; //from employee-search-component
+  public selectedEmployeeId: number | undefined = -1; //from selected employee in employee-list-component
   constructor() {}
 
-  change_id(id_string: string | null)
+  changeId(idString: string | null)
   {
-    this.searched_id_string = id_string;
+    this.searchedIdString = idString;
   }
 
-  change_selected_employee_id(id: number | undefined)
+  changeSelectedEmployeeId(id: number | undefined)
   {
-    this.selected_employee_id = id;
+    this.selectedEmployeeId = id;
   }
 }
