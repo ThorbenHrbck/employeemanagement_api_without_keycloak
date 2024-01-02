@@ -33,6 +33,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     this.idString = this.route.snapshot.paramMap.get('id');
     if(this.idString !== null)
     {
+      //everything in .subscribe will be executed AFTER ngOnInit() is done
       this.employeeService.getEmployee(parseInt(this.idString)).subscribe(employee => {this.employee = employee; 
         if(this.employee && this.employee.firstName)
         {
@@ -109,6 +110,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     this.isEmployeeUpdated = false;
   }
 
+  //if any inputBox has nothing in it the add button will be disabled
   disableButton() : boolean
   {
     if(this.firstName.length === 0)
@@ -155,12 +157,6 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   btnUpdateEmployee() : void
   {
-    console.log(this.firstName);
-    console.log(this.lastName);
-    console.log(this.city);
-    console.log(this.street);
-    console.log(this.postcode);
-    console.log(this.phone);
     if(this.employee)
     {
       this.employee.firstName = this.firstName;
@@ -170,11 +166,8 @@ export class UpdateEmployeePageComponent implements OnInit{
       this.employee.postcode = this.postcode;
       this.employee.phone = this.phone;
 
-      console.log(this.employee.id);
-      console.log(this.employee.firstName);
-
+      //after successfully updating the employee a text will be shown that it was successful
       this.employeeService.updateEmployee(this.employee).subscribe(() => {this.isEmployeeUpdated = true;});
-      //this.isEmployeeUpdated = true;
     }
   }
 }

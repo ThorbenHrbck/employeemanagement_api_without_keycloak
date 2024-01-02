@@ -46,7 +46,7 @@ export class EmployeeListComponent implements OnInit, OnChanges{
       this.selectedIdEmit.emit(selected_id);
     }
     
-
+    //triggers when idString is changed
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit();
   }

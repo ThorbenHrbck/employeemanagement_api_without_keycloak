@@ -29,6 +29,7 @@ export class AddEmployeePageComponent implements OnInit{
     this.getNextId();
   }
 
+  //searches the last ID from the employee list and then adds 1 - number will be shown in inputBoxId
   getNextId() : void
   {
     this.employeeService.getEmployees().subscribe(employees => {this.employees = employees;
@@ -87,6 +88,8 @@ export class AddEmployeePageComponent implements OnInit{
     this.newEmployee.phone = this.phone;
 
     console.log(this.newEmployee);
+
+    //After successfull adding of the employee the next ID will be searched and a text will be shown
     this.employeeService.addEmployee(this.newEmployee).subscribe(employee => {this.ngOnInit();
     this.isNewTextTypedIn = true;});
     
@@ -102,6 +105,7 @@ export class AddEmployeePageComponent implements OnInit{
     this.phone = '';
   }
 
+  //if any inputBox has nothing in it the add button will be disabled
   disableButton() : boolean
   {
     if(this.firstName.length === 0)

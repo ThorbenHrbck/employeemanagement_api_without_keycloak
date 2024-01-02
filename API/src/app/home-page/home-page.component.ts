@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -15,11 +14,11 @@ export class HomePageComponent {
 
   changeId(idString: string | null)
   {
-    this.searchedIdString = idString;
+    this.searchedIdString = idString; //when the value changes the new value will be send to employee-list-component
   }
 
   changeSelectedEmployeeId(id: number | undefined)
   {
-    this.selectedEmployeeId = id;
+    this.selectedEmployeeId = id; //when the value changes the new value will be send to crud-button-component
   }
 }

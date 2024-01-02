@@ -19,6 +19,6 @@ export class SearchComponent{
       this.idEmit.emit('0');
       return;
     }
-    this.idEmit.emit(idString);
+    this.idEmit.emit(idString); //emits the id from the searchBox to home-page-component.tx
   }
 }

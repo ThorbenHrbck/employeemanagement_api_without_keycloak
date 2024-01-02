@@ -26,8 +26,8 @@ export class CrudButtonComponent implements OnChanges{
 
   btnNavigateToUpdateEmployeePage() : void
   {
-    let id_string = this.inputId?.toString();
-    this.router.navigateByUrl("/update-employee/" + id_string);
+    let idString = this.inputId?.toString();
+    this.router.navigateByUrl("/update-employee/" + idString);
   }
 
   btnDeleteEmployee() : void 
@@ -44,6 +44,7 @@ export class CrudButtonComponent implements OnChanges{
     this.isInputIdValid();
   }
 
+  //only enables the button if the number is bigger or equals 1
   isInputIdValid() : void  
   {
     if(this.inputId !== undefined && this.inputId >= 1)
