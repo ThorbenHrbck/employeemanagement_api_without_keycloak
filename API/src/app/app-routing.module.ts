@@ -7,7 +7,7 @@ import { UpdateEmployeePageComponent } from './update-employee-page/update-emplo
 import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'help', component: HelpPageComponent},
   { path: 'home', component: HomePageComponent},
   { path: 'add-employee', component: AddEmployeePageComponent},

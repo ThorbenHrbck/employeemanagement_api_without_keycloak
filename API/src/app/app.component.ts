@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { BearerTokenHolderService } from './bearer-token-holder.service';
+import { LoginService } from './login.service';
 
 
 @Component({
@@ -6,7 +8,12 @@ import {Component} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Mitarbeiterverwaltungssystem'
+  tokenReceived : boolean = true;
 
+  constructor(private loginService: LoginService)
+  {
+    loginService.isTokenReceived().subscribe(data => this.tokenReceived = data);
+  }
 }
