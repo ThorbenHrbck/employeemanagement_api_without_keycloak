@@ -1,17 +1,17 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BearerTokenHolderService } from './bearer-token-holder.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private bearerTokenHolder: BearerTokenHolderService, private router: Router) { }
 
   timeOutCounter : number = 0;
   timeOutTimeLeft : number | undefined;
-
-  token : string = '';
 
   url : string = 'http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token'
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
@@ -42,27 +42,23 @@ export class LoginService {
       console.log(body)
       console.log(body.toString())
       
-      this.http.post(this.url, body, this.httpOptions).subscribe(token => console.log(token), error => this.handleError(error))
+      this.http.post(this.url, body, this.httpOptions).subscribe(token => {console.log(token);
+        if(token)
+        {
+          this.timeOutCounter = 0;
+          this.bearerTokenHolder.safeToken(token.toString());
+          this.router.navigateByUrl("/home");
+        }
+      })
       this.timeOutCounter++;
-      //this.showWrongPasswordText = false;
+      this.showWrongPasswordText = true;
     }else
     {
       this.timeOutCounter = 0;
       this.timeOutTimeLeft = Date.now() / 1000; 
-    }
-   }
-  }
-
-  handleError(error : any)
-  {
-    console.log(error);
-
-    this.showWrongPasswordText = true;
-
-    if(this.timeOutCounter === 3)
-    {
       this.showTimeOutText = true;
     }
+   }
   }
 
   getShowTimeOutText() : boolean 
