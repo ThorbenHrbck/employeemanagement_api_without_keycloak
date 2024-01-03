@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BearerTokenHolderService } from './bearer-token-holder.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class LoginService {
 
   showTimeOutText : boolean = false;
   showWrongPasswordText : boolean = false;
+
+  tokenReceived = new BehaviorSubject<boolean>(true); //ZU FALSE ÄNDERN SOBALD MAN DEN TOKEN BEKOMMEN KANN
   
 
   login(username : string, password : string)
@@ -48,6 +51,7 @@ export class LoginService {
           this.timeOutCounter = 0;
           this.bearerTokenHolder.safeToken(token.toString());
           this.router.navigateByUrl("/home");
+          this.tokenReceived.next(true);
         }
       })
       this.timeOutCounter++;
@@ -69,5 +73,10 @@ export class LoginService {
   getShowWrongPasswordText() : boolean
   {
     return this.showWrongPasswordText;
+  }
+
+  isTokenReceived(): Observable<boolean>
+  {
+    return this.tokenReceived.asObservable();
   }
 }

@@ -3,16 +3,23 @@
     <title>Mitarbeiterverwaltungssystem</title>
 </head>
 <body>
-    <a id="logo-ID" href="/home"><img>LOGO</a>
-    <h1 id="title-ID">{{title}}</h1>
-
-    <hr>
-    <br>
-    <router-outlet></router-outlet>
-
-    <hr id="test">
-    <div class="container">    
-        <a href="/home">Startseite</a>
-        <a href="/help">Hilfe</a>
+    <div *ngIf="!tokenReceived">
+        <app-login-page></app-login-page>
     </div>
+    
+    <div *ngIf="tokenReceived">
+        <a id="logo-ID" href="/home"><img>LOGO</a>
+        <h1 id="title-ID">{{title}}</h1>
+        <hr>
+        
+        <br>
+        <router-outlet></router-outlet>
+
+        <hr id="test">
+        <div class="container">    
+            <a href="/home">Startseite</a>
+            <a href="/help">Hilfe</a>
+        </div>
+    </div>
+    
 </body>
