@@ -19,9 +19,7 @@ export class EmployeeListComponent implements OnInit, OnChanges{
 
   @Input() idString: string | null | undefined; //searched id from  employee-search-component
 
-  constructor(private employeeService: EmployeeService) {
-    
-  }
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     this.highlightRow = -1; //resets the highlighted row so it does not show whenever a searched id is given

@@ -13,7 +13,8 @@ export class LoginPageComponent {
   username : string = '';
   password : string = '';
 
-  showBlockText : boolean = false;
+  showTimeOutText : boolean = false;
+  showWrongPasswordText : boolean = false;
 
 
   inputUsername(username : string) : void 
@@ -29,5 +30,9 @@ export class LoginPageComponent {
   btnLogin(username : string, password : string) : void 
   {
     this.loginService.login(username, password);
+    this.showWrongPasswordText = this.loginService.getShowWrongPasswordText();
+    this.showTimeOutText = this.loginService.getShowTimeOutText();
   }
+
+
 }
