@@ -1,6 +1,7 @@
 .container{
-  display: flex;
-  margin-top: 2%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1%;
 }
 
 #logo-ID{
