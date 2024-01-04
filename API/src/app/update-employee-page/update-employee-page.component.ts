@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../Employee';
 import { EmployeeService } from '../employee.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-update-employee-page',
@@ -24,9 +25,10 @@ export class UpdateEmployeePageComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    private router: Router)
+    private router: Router,
+    private title: Title)
   {
-    
+    this.title.setTitle("Bearbeiten")
   }
 
   ngOnInit(): void {

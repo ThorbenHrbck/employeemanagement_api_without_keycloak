@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +11,10 @@ export class HomePageComponent {
   
   public searchedIdString: string | null = '0'; //from employee-search-component
   public selectedEmployeeId: number | undefined = -1; //from selected employee in employee-list-component
-  constructor() {}
+  constructor(private title: Title) 
+  {
+    this.title.setTitle("Startseite")
+  }
 
   changeId(idString: string | null)
   {

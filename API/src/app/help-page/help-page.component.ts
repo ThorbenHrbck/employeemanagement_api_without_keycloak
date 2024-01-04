@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-help-page',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./help-page.component.css']
 })
 export class HelpPageComponent {
-
+  constructor(private title: Title)
+  {
+    this.title.setTitle("Hilfe")
+  }
 }

@@ -35,12 +35,12 @@
                 [style.border-color]="city !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-street">Straße</label>
+                <label for="lbl-street">Straße - Darf nicht übereinstimmen mit einer anderen benutzten Straße</label>
                 <input id="input-street" type="text" [value]="street" #inputBoxStreet (input)="inputStreet(inputBoxStreet.value)"
                 [style.border-color]="street !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-postcode">PLZ</label>
+                <label for="lbl-postcode">PLZ - Mindestens 5 Zahlen</label>
                 <input id="input-postcode" type="number" [value]="postcode" #inputBoxPostcode (input)="inputPostcode(inputBoxPostcode.value)"
                 [style.border-color]="postcode !== '' ? 'blue' : 'red'">
             </div>

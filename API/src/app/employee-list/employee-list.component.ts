@@ -27,7 +27,8 @@ export class EmployeeListComponent implements OnInit, OnChanges{
     //if true then only 1 employee is shown, else every employee is shown
     if(this.idString?.length !== 0 && this.idString !== '0' && this.idString !== undefined && this.idString !== null)
     {
-      this.employeeService.getEmployee(parseInt(this.idString)).subscribe(employee => this.employee = employee);
+      this.employeeService.getEmployee(parseInt(this.idString)).subscribe(employee => this.employee = employee, 
+        err => this.employee = undefined);
       this.employees = of([]);
     }else
     {

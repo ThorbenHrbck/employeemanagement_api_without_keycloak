@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../Employee';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-employee-page',
@@ -25,7 +26,11 @@ export class AddEmployeePageComponent implements OnInit{
   newEmployee : Employee = new Employee();
 
   constructor(private employeeService: EmployeeService,
-    private router: Router){}
+    private router: Router,
+    private title: Title)
+    {
+      this.title.setTitle("Hinzufügen")
+    }
 
   ngOnInit(): void {
     this.getNextId();
@@ -92,7 +97,7 @@ export class AddEmployeePageComponent implements OnInit{
     console.log(this.newEmployee);
 
     //After successfull adding of the employee the next ID will be searched and a text will be shown
-    this.employeeService.addEmployee(this.newEmployee).subscribe(employee => {this.ngOnInit();
+    this.employeeService.addEmployee(this.newEmployee).subscribe(() => {this.ngOnInit();
     this.isNewTextTypedIn = true;});
     
   }

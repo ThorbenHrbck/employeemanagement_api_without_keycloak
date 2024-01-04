@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { LoginService } from '../login.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login-page',
@@ -7,8 +8,10 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  constructor(private loginService: LoginService)
+  constructor(private loginService: LoginService,
+    private title: Title)
   {
+    this.title.setTitle("Login");
     this.loginService.getShowWrongPasswordText().subscribe(data => this.showWrongPasswordText = data);
     this.loginService.getShowTimeOutText().subscribe(data => this.showTimeOutText = data);
   }
