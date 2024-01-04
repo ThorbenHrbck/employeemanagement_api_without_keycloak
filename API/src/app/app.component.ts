@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { BearerTokenHolderService } from './bearer-token-holder.service';
 import { LoginService } from './login.service';
 
 

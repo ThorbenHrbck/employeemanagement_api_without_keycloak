@@ -14,14 +14,14 @@ export class LoginService {
   timeOutCounter : number = 0;
   timeOutTimeLeft : number | undefined;
 
-  url : string = 'http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token'
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"})}
+  url : string = "http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token"
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})}
 
-  showTimeOutText : boolean = false;
-  showWrongPasswordText : boolean = false;
+  //observed by login-page.component.ts
+  showTimeOutText = new BehaviorSubject<boolean>(false);
+  showWrongPasswordText = new BehaviorSubject<boolean>(false);
 
+  //observed by app.component.ts
   tokenReceived = new BehaviorSubject<boolean>(true); //ZU FALSE ÄNDERN SOBALD MAN DEN TOKEN BEKOMMEN KANN
   
 
@@ -30,17 +30,16 @@ export class LoginService {
     console.log(username)
     console.log(password)
     var currentTime = Date.now() / 1000;
-    
-
-   if(this.timeOutTimeLeft === undefined || currentTime-this.timeOutTimeLeft > 120) 
+    //timer only starts after 3 failed logins
+   if(this.timeOutTimeLeft === undefined || currentTime-this.timeOutTimeLeft > 5) 
    {
     if(this.timeOutCounter < 3)
     {
-      const body = new URLSearchParams()
-      body.set('grant_type', 'password')
+      const body = new URLSearchParams(); 
       body.set('client_id', 'employee-management-service')
       body.set('username', username)
       body.set('password', password)
+      body.set('grant_type', 'password')
 
       console.log(body)
       console.log(body.toString())
@@ -51,28 +50,40 @@ export class LoginService {
           this.timeOutCounter = 0;
           this.bearerTokenHolder.safeToken(token.toString());
           this.router.navigateByUrl("/home");
-          this.tokenReceived.next(true);
+          this.tokenReceived.next(true); //setting the boolean to true will show the hidden html-div in app-component.html
         }
-      })
+      }, err => this.handleError(err))
       this.timeOutCounter++;
-      this.showWrongPasswordText = true;
     }else
     {
       this.timeOutCounter = 0;
       this.timeOutTimeLeft = Date.now() / 1000; 
-      this.showTimeOutText = true;
     }
    }
   }
 
-  getShowTimeOutText() : boolean 
+  handleError(error: string) : void
   {
-    return this.showTimeOutText
+    console.log(error);
+    this.showWrongPasswordText.next(true);
+
+    if(this.timeOutCounter === 3)
+    {
+      this.showTimeOutText.next(true);
+    }else
+    {
+      this.showTimeOutText.next(false);
+    }
   }
 
-  getShowWrongPasswordText() : boolean
+  getShowTimeOutText() : Observable<boolean> 
   {
-    return this.showWrongPasswordText;
+    return this.showTimeOutText.asObservable()
+  }
+
+  getShowWrongPasswordText() : Observable<boolean> 
+  {
+    return this.showWrongPasswordText.asObservable();
   }
 
   isTokenReceived(): Observable<boolean>

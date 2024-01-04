@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee-page',
@@ -23,7 +24,8 @@ export class AddEmployeePageComponent implements OnInit{
 
   newEmployee : Employee = new Employee();
 
-  constructor(private employeeService: EmployeeService){}
+  constructor(private employeeService: EmployeeService,
+    private router: Router){}
 
   ngOnInit(): void {
     this.getNextId();
@@ -138,5 +140,10 @@ export class AddEmployeePageComponent implements OnInit{
       return true;
     }
     return false;
+  }
+
+  btnReturnToHomePage() : void 
+  {
+    this.router.navigateByUrl("/home");
   }
 }

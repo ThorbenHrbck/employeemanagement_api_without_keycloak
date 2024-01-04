@@ -8,7 +8,10 @@ import { LoginService } from '../login.service';
 })
 export class LoginPageComponent {
   constructor(private loginService: LoginService)
-  {}
+  {
+    this.loginService.getShowWrongPasswordText().subscribe(data => this.showWrongPasswordText = data);
+    this.loginService.getShowTimeOutText().subscribe(data => this.showTimeOutText = data);
+  }
 
   username : string = '';
   password : string = '';
@@ -30,8 +33,6 @@ export class LoginPageComponent {
   btnLogin(username : string, password : string) : void 
   {
     this.loginService.login(username, password);
-    this.showWrongPasswordText = this.loginService.getShowWrongPasswordText();
-    this.showTimeOutText = this.loginService.getShowTimeOutText();
   }
 
 
