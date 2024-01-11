@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { LoginService } from './login.service';
 
 
 @Component({
@@ -9,10 +8,4 @@ import { LoginService } from './login.service';
 })
 export class AppComponent{
   title = 'Mitarbeiterverwaltungssystem'
-  tokenReceived : boolean = true;
-
-  constructor(private loginService: LoginService)
-  {
-    loginService.isTokenReceived().subscribe(data => this.tokenReceived = data);
-  }
 }

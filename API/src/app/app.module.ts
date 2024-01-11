@@ -11,7 +11,6 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddEmployeePageComponent } from './add-employee-page/add-employee-page.component';
 import { UpdateEmployeePageComponent } from './update-employee-page/update-employee-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     HelpPageComponent,
     HomePageComponent,
     AddEmployeePageComponent,
-    UpdateEmployeePageComponent,
-    LoginPageComponent
+    UpdateEmployeePageComponent
   ],
   imports: [
     BrowserModule,

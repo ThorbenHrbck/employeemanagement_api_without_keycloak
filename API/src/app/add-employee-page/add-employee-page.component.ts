@@ -40,10 +40,17 @@ export class AddEmployeePageComponent implements OnInit{
   getNextId() : void
   {
     this.employeeService.getEmployees().subscribe(employees => {this.employees = employees;
-      let lastEmployee = this.employees[this.employees.length - 1];
-      if(lastEmployee && lastEmployee.id)
+      let employee;
+      for(let i = 0; i < this.employees.length; i++)
       {
-        this.id = lastEmployee.id + 1;
+        employee = this.employees[i];
+        if(employee && employee.id)
+        {
+          if(this.id - 1 < employee.id)
+          {
+            this.id = employee.id + 1;
+          }
+        }
       }
     })
   }
