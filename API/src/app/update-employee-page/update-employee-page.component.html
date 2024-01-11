@@ -13,39 +13,39 @@
         <hr>
         <div class="input-container">
             <div>
-                <label for="lbl-id">ID</label>
+                <label>ID</label>
                 <input type="number" disabled *ngIf="employee" value="{{employee.id}}" >
             </div>
             <div>
                 <!--does not remove, is used for arrangement, otherwise first name next to id-->
             </div>
             <div>
-                <label for="lbl-forname">Vorname</label>
+                <label>Vorname</label>
                 <input type="text" *ngIf="employee" [value]="firstName" #searchBox (input)="inputFirstName(searchBox.value)"
                 [style.border-color]="firstName !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-lastname">Nachname</label>
+                <label>Nachname</label>
                 <input type="text" *ngIf="employee" [value]="lastName" #searchBox (input)="inputLastName(searchBox.value)"
                 [style.border-color]="lastName !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-city">Wohnort</label>
+                <label>Wohnort</label>
                 <input type="text" *ngIf="employee" [value]="city" #searchBox (input)="inputCity(searchBox.value)"
                 [style.border-color]="city !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-street">Straße</label>
+                <label>Straße</label>
                 <input type="text" *ngIf="employee" [value]="street" #searchBox (input)="inputStreet(searchBox.value)"
                 [style.border-color]="street !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-postcode">PLZ</label>
+                <label>PLZ</label>
                 <input type="number" *ngIf="employee" [value]="postcode" #searchBox (input)="inputPostcode(searchBox.value)"
                 [style.border-color]="postcode !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-phone">Telefonnummer</label>
+                <label>Telefonnummer</label>
                 <input type="text" *ngIf="employee" [value]="phone" #searchBox (input)="inputPhone(searchBox.value)"
                 [style.border-color]="phone !== '' ? 'blue' : 'red'">
             </div>

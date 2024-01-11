@@ -13,39 +13,39 @@
         <hr>
         <div class="input-container">
             <div>
-                <label for="lbl-id">ID</label>
+                <label>ID</label>
                 <input id="input-id" type="number" [value]="id" disabled>
             </div>
             <div>
                 <!--does not remove, is used for arrangement, otherwise first name next to id-->
             </div>
             <div>
-                <label for="lbl-forname">Vorname</label>
+                <label>Vorname</label>
                 <input id="input-first-name" type="text" [value]="firstName" #inputBoxFirstName (input)="inputFirstName(inputBoxFirstName.value)"
                 [style.border-color]="firstName !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-lastname">Nachname</label>
+                <label>Nachname</label>
                 <input id="input-last-name" type="text" [value]="lastName" #inputBoxLastName (input)="inputLastName(inputBoxLastName.value)"
                 [style.border-color]="lastName !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-city">Wohnort</label>
+                <label>Wohnort</label>
                 <input id="input-city" type="text" [value]="city" #inputBoxCity (input)="inputCity(inputBoxCity.value)"
                 [style.border-color]="city !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-street">Straße - Darf nicht übereinstimmen mit einer anderen benutzten Straße</label>
+                <label>Straße - Darf nicht übereinstimmen mit einer anderen benutzten Straße</label>
                 <input id="input-street" type="text" [value]="street" #inputBoxStreet (input)="inputStreet(inputBoxStreet.value)"
                 [style.border-color]="street !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-postcode">PLZ - Genau 5 Zahlen</label>
+                <label>PLZ - Genau 5 Zahlen</label>
                 <input id="input-postcode" type="number" [value]="postcode" #inputBoxPostcode (input)="inputPostcode(inputBoxPostcode.value)"
                 [style.border-color]="postcode !== '' ? 'blue' : 'red'">
             </div>
             <div>
-                <label for="lbl-phone">Telefonnummer</label>
+                <label>Telefonnummer</label>
                 <input id="input-phone" type="text" [value]="phone" #inputBoxPhone (input)="inputPhone(inputBoxPhone.value)"
                 [style.border-color]="phone !== '' ? 'blue' : 'red'">
             </div>

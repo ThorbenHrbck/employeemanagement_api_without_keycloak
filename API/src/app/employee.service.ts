@@ -15,11 +15,13 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
+  /** GET: gets a list of employees from the server */
   getEmployees(): Observable<Employee[]>
   {
     return this.http.get<Employee[]>(this.swaggerURL, this.httpOptions);
   }
 
+  /** GET: gets a employee from the server */
   getEmployee(id: number): Observable<Employee>
   {
     const url = `${this.swaggerURL}/${id}`;
