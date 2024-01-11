@@ -38,7 +38,7 @@ hr{
 /* Stilisiert jedes Eingabefeld */
 .input-container div {
     width: 45%;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
 }
 
 /* Stilisiert die Eingabefelder selbst, nimmt die volle Breite des Elternelements ein */
