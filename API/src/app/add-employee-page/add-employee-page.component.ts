@@ -20,6 +20,7 @@ export class AddEmployeePageComponent implements OnInit{
   phone : string = '';
 
   isNewTextTypedIn : boolean = false;
+  failedToAddEmployee : boolean = false;
 
   employees : Employee[] = [];
 
@@ -101,12 +102,12 @@ export class AddEmployeePageComponent implements OnInit{
     this.newEmployee.postcode = this.postcode;
     this.newEmployee.phone = this.phone;
 
-    console.log(this.newEmployee);
-
     //After successfull adding of the employee the next ID will be searched and a text will be shown
     this.employeeService.addEmployee(this.newEmployee).subscribe(() => {this.ngOnInit();
-    this.isNewTextTypedIn = true;});
-    
+      this.isNewTextTypedIn = true;
+      this.failedToAddEmployee = false;}, 
+      () => {this.isNewTextTypedIn = false; 
+      this.failedToAddEmployee = true});
   }
 
   btnEmptyInputFields() : void 

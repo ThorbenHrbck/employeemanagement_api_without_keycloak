@@ -53,6 +53,9 @@
         <div *ngIf="isNewTextTypedIn">
             <p >Mitarbeiter erfolgreich hinzugefügt</p>
         </div>
+        <div *ngIf="failedToAddEmployee">
+            <p>Mitarbeiter konnte nicht hinzugefügt werden</p>
+        </div>
 
         <div class="button-container">
             <button id="button-safe" (click)="btnAddEmployee()" [disabled]="disableButton()">Speichern</button>
