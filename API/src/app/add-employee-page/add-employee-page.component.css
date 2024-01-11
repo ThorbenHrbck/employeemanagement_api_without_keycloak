@@ -1,4 +1,4 @@
-/* Setzt die Standard-Schriftfamilie und entfernt margin/padding vom gesamten Dokument */
+/* Setzt die Standard-Schriftart und entfernt margin/padding vom gesamten Dokument */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,10 +8,10 @@ hr{
     border: dashed 1px;
 }
 
-/* Flexbox für den Header, zentriert den Inhalt und platziert ihn zwischen den Rändern */
+/* zentriert den Inhalt, platziert ihn zwischen den Rändern, setzt entfernung zu unteren elementen */
 .header-container {
     display: flex;
-    margin-bottom: 20px; /*entfernung zu unteren Elementen*/
+    margin-bottom: 20px;
 }
 
 .header-container button {
@@ -35,26 +35,23 @@ hr{
     margin-bottom: 10px;
 }
 
-/* Stilisiert jedes Eingabefeld */
 .input-container div {
     width: 45%;
     margin-bottom: 4%;
 }
 
-/* Stilisiert die Eingabefelder selbst, nimmt die volle Breite des Elternelements ein */
+/* nimmt die volle Breite des Elternelements ein */
 .input-container input {
     width: 100%;
     padding: 5px;
 }
 
-/* Stilisiert den Container für die Buttons und zentriert sie */
 .button-container {
     display: flex;
     text-align: center;
     margin-bottom: 2%;
 }
 
-/* Stilisiert die Buttons selbst */
 .button-container button {
     background-color: #3498db;
     color: #fff;
@@ -64,6 +61,7 @@ hr{
     margin-right: 10px;
     border-radius: 4px;
 }
+
 .button-container button:disabled{
     background-color: #cccccc;
     cursor: no-drop;

@@ -1,17 +1,18 @@
-/* Setzt die Standard-Schriftfamilie und entfernt margin/padding vom gesamten Dokument */
+/* Setzt die Standard-Schriftart und entfernt margin/padding vom gesamten Dokument */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+
 hr{ 
     border: dashed 1px;
 }
 
-/* Flexbox für den Header, zentriert den Inhalt und platziert ihn zwischen den Rändern */
+/* zentriert Inhalt, platziert ihn zwischen den Rändern */
 .header-container {
     display: flex;
-    margin-bottom: 20px; /*entfernung zu unteren Elementen*/
+    margin-bottom: 20px;
 }
 
 .header-container button {
@@ -27,7 +28,7 @@ hr{
     margin: 0 auto;
 }
 
-/* Flexbox für die Eingabefelder, erlaubt Zeilenumbruch bei kleineren Bildschirmen */
+/* erlaubt Zeilenumbruch bei kleineren Bildschirmen */
 .input-container {
     display: flex;
     flex-wrap: wrap;
