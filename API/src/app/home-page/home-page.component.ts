@@ -11,7 +11,7 @@ export class HomePageComponent {
   
   public searchedIdString: string | null = '0'; //from employee-search-component
   public selectedEmployeeId: number | undefined = -1; //from selected employee in employee-list-component
-  constructor(private title: Title) 
+  constructor(private title: Title)
   {
     this.title.setTitle("Startseite")
   }
