@@ -12,5 +12,5 @@ tr:hover,
 tr:focus-within {
   background: #f2f3ff;
   outline: none;
-  cursor:pointer
+  cursor: pointer;
 }
