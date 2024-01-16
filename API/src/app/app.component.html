@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <head>
 </head>
+
 <body>
     <div>
-        <a id="logo-ID" href="/home"><img>LOGO</a>
-        <h1 id="title-ID">{{title}}</h1>
-        <hr>    
-        <br>
-        <!--dont remove router-outlet-->
-        <router-outlet></router-outlet>
+        <a href="/home">
+            <img src="../assets/images/logo.png" height="50" width="50">
+        </a>
+        
+        <h1 id="title">{{title}}</h1>
+        
         <hr>
-        <div class="container">    
-            <a href="/home">Startseite</a>&nbsp;
-            <a href="/help">Hilfe</a>
-        </div>
+        <br>
+
+        <router-outlet></router-outlet> <!--dont remove router-outlet-->
+
+        <hr>
     </div>
 </body>
+
+<footer class="footer">
+    <div class="container">    
+        <a href="/home">Startseite</a>&nbsp; <!--&nbsp adds a space after the Hyperlink-->
+        <a href="/help">Hilfe</a>
+    </div>
+</footer>

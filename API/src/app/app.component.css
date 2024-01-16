@@ -1,19 +1,18 @@
-.container{
+hr
+{ 
+  height: 1px; 
+  margin: 0px;
+  background: black;
+}
+
+.container
+{
   position: absolute;
   bottom: 0;
   margin-bottom: 1%;
 }
 
-#logo-ID{
-  float: left;
-}
-
-#title-ID{
+#title
+{
   text-align: center;
-}
-
-hr{ 
-  height: 1px; 
-  margin: 0px;
-  background: black;
 }
