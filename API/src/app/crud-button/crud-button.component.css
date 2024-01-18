@@ -1,20 +1,44 @@
-.button
+.addButton
 {
-    background-color: white;
+    background-color: #3498db;
     width: 200px;
     height: 50px;
     border-radius: 15px;
     font-size: 20px;
 }
 
-.button:hover
+.addButton:hover
+{
+    background-color: #1b80c3;
+}
+
+.addButton:active
+{
+    background-color: #3498db;
+}
+
+.changeButton
+{
+    background-color: #3498db;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.changeButton:hover:disabled
 {
     background-color: lightgray;
 }
 
-.button:active
+.changeButton:disabled{
+    background-color: white;
+    cursor: no-drop;
+}
+
+.changeButton:hover
 {
-    background-color: grey;
+    background-color: #1b80c3;
 }
 
 .deleteButton
@@ -31,12 +55,12 @@
     background-color: #ac341e;
 }
 
-.deleteButton:active
-{
-    background-color: gray;
-}
-
 .deleteButton:disabled
 {
     background-color: white;
+    cursor: no-drop;
+}
+.deleteButton:hover:disabled
+{
+    background-color: lightgray;
 }
