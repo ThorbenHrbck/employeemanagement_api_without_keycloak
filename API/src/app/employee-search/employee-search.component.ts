@@ -9,7 +9,7 @@ export class SearchComponent{
   
   constructor() {}
 
-  @Output() idEmit = new EventEmitter<string | null>();
+  @Output() idEmit = new EventEmitter<string | null>(); //will emit to the home page
 
 
   search(idString: string): void {
