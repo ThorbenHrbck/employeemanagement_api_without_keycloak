@@ -12,7 +12,7 @@ hr{
 /* zentriert Inhalt, platziert ihn zwischen den Rändern */
 .header-container {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 1%;
 }
 
 .header-container button {
@@ -21,7 +21,6 @@ hr{
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
 }
 
 .header-container p{
@@ -33,13 +32,12 @@ hr{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 
 /* Stilisiert jedes Eingabefeld */
 .input-container div {
     width: 45%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 /* Stilisiert die Eingabefelder selbst, nimmt die volle Breite des Elternelements ein */
@@ -52,7 +50,7 @@ hr{
 .button-container {
     display: flex;
     text-align: center;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 /* Stilisiert die Buttons selbst */
@@ -63,7 +61,6 @@ hr{
     border: none;
     cursor: pointer;
     margin-right: 10px;
-    border-radius: 4px;
 }
 /* Stilisiert wenn Buttons disabled */
 .button-container button:disabled {
