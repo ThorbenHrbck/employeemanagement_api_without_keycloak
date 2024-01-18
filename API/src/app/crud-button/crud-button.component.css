@@ -1,8 +1,10 @@
 .addButton
 {
     background-color: #3498db;
+    color: white;
     width: 200px;
     height: 50px;
+    border: none;
     border-radius: 15px;
     font-size: 20px;
 }
@@ -22,6 +24,7 @@
     background-color: #3498db;
     width: 200px;
     height: 50px;
+    border: none;
     border-radius: 15px;
     font-size: 20px;
 }
@@ -46,6 +49,7 @@
     background-color: #d74126;
     width: 200px;
     height: 50px;
+    border: none;
     border-radius: 15px;
     font-size: 20px;
 }
