@@ -1,5 +1,19 @@
-.headline {
+.headline
+{
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+}
+
+.text
+{
+    text-align: center;
+}
+
+.image
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
