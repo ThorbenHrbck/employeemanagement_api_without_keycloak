@@ -16,3 +16,27 @@
 {
     background-color: grey;
 }
+
+.deleteButton
+{
+    background-color: #d74126;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.deleteButton:hover
+{
+    background-color: #ac341e;
+}
+
+.deleteButton:active
+{
+    background-color: gray;
+}
+
+.deleteButton:disabled
+{
+    background-color: white;
+}
