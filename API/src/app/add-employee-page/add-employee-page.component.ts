@@ -105,7 +105,8 @@ export class AddEmployeePageComponent implements OnInit{
     //After successfull adding of the employee the next ID will be searched and a text will be shown
     this.employeeService.addEmployee(this.newEmployee).subscribe(() => {this.ngOnInit(); //triggers on success
       this.isNewTextTypedIn = true;
-      this.failedToAddEmployee = false;}, 
+      this.failedToAddEmployee = false;
+      this.btnEmptyInputFields()}, 
       () => {this.isNewTextTypedIn = false; //triggers on failure
       this.failedToAddEmployee = true});
   }
