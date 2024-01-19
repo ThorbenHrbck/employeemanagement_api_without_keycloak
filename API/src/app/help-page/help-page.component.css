@@ -5,11 +5,12 @@ img
     margin-right: auto;
     width: 800px;
     height: auto;
-    border: 1px solid black;
+    border: 1px dashed black;
 }
 
 .headline
 {
+    font-family: "Roboto";
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -17,5 +18,6 @@ img
 
 .text
 {
+    font-family: "Roboto";
     text-align: center;
 }
