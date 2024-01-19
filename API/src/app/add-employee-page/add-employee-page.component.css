@@ -1,9 +1,10 @@
 /* Setzt die Standard-Schriftart und entfernt margin/padding vom gesamten Dokument */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto";
     margin: 0;
     padding: 0;
 }
+
 hr{ 
     border: dashed 1px;
 }
@@ -11,7 +12,9 @@ hr{
 /* zentriert den Inhalt, platziert ihn zwischen den Rändern, setzt entfernung zu unteren elementen */
 .header-container {
     display: flex;
-    margin-bottom: 1%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .header-container button {
@@ -20,11 +23,13 @@ hr{
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 12px;
 }
 
 .header-container p{
-    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
 }
 
 /* Flexbox für die Eingabefelder, erlaubt Zeilenumbruch bei kleineren Bildschirmen */
@@ -58,7 +63,7 @@ hr{
     border: none;
     cursor: pointer;
     margin-right: 10px;
-    border-radius: 4px;
+    border-radius: 12px;
 }
 
 .button-container button:disabled{

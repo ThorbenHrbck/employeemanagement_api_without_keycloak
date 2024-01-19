@@ -1,12 +1,13 @@
 .addButton
 {
-    background-color: #3498db;
+    font-family: "Roboto";
+    font-size: 20px;
     color: white;
+    background-color: #3498db;
+    border: none;
     width: 200px;
     height: 50px;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
+    border-radius: 12px;
 }
 
 .addButton:hover
@@ -19,39 +20,42 @@
     background-color: #3498db;
 }
 
-.changeButton
+.updateButton
 {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: white;
     background-color: #3498db;
+    border: none;
     width: 200px;
     height: 50px;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
+    border-radius: 12px;
 }
 
-.changeButton:hover:disabled
-{
-    background-color: lightgray;
-}
-
-.changeButton:disabled{
-    background-color: white;
+.updateButton:disabled{
+    background-color: #cccccc;
     cursor: no-drop;
 }
 
-.changeButton:hover
+.updateButton:disabled:hover{
+    background-color: #cccccc;
+}
+
+.updateButton:hover
 {
     background-color: #1b80c3;
 }
 
 .deleteButton
 {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: white;
     background-color: #d74126;
+    border: none;
     width: 200px;
     height: 50px;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
+    border-radius: 12px;
 }
 
 .deleteButton:hover
@@ -61,10 +65,11 @@
 
 .deleteButton:disabled
 {
-    background-color: white;
+    background-color: #cccccc;
     cursor: no-drop;
 }
+
 .deleteButton:hover:disabled
 {
-    background-color: lightgray;
+    background-color: #cccccc;
 }
