@@ -14,10 +14,12 @@ img
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    margin-top: 4%;
 }
 
 .text
 {
     font-family: "Roboto";
     text-align: center;
+    margin-bottom: 2%;
 }
